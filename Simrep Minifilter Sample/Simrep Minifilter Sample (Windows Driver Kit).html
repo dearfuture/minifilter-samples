@@ -1,0 +1,561 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0096)https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/ff556746.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./Simrep Minifilter Sample (Windows Driver Kit)_files/analytics.js.下载" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app56.us.archive.org';v.server_ms=236;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/ait-client-rewrite.js.下载" charset="utf-8"></script>
+<script type="text/javascript">
+WB_wombat_Init("https://web.archive.org/web/", "20110404040817", "msdn.microsoft.com:80");
+</script>
+<script type="text/javascript" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/wbhack.js.下载" charset="utf-8"></script>
+<script type="text/javascript">
+__wbhack.init('https://web.archive.org/web');
+</script>
+<link rel="stylesheet" type="text/css" href="./Simrep Minifilter Sample (Windows Driver Kit)_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./Simrep Minifilter Sample (Windows Driver Kit)_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+<meta name="Search.MSHKeywordA" content="ifsk.simrep_minifilter_sample" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSHKeywordA" content="IFSKSamples_383669bb-30e3-4cc9-965f-4d72bf5e236d.xml" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSHAttr.Locale" content="kbEnglish" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSHAttr.DevLang" content="C++" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSHAttr.DevLang" content="C" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSHAttr.Product" content="Windows" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSHAttr.TargetOS" content="Windows" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSHAttr.DocSet" content="LHSDK" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSHAttr.ProgModel" content="Win32" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSHAttr.TopicType" content="kbArticle" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSHAttr.AssetID" content="496b9d0c-782a-4a20-94e4-e0cfba82d057" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSHAttr.DocSetTitle" content="InstallableFileSystemDrivers" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSHAttr.DocSetRoot" content="Ff556746" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.AssetID" content="496b9d0c-782a-4a20-94e4-e0cfba82d057" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategory" content="ms310241" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategoryV" content="ms310241MSDN10" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategory" content="aa139672" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategoryV" content="aa139672MSDN10" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategory" content="ff576017" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategoryV" content="ff576017VS85" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategory" content="ff576020" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategoryV" content="ff576020VS85" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategory" content="ff572495" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategoryV" content="ff572495VS85" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategory" content="ff573064" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategoryV" content="ff573064VS85" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategory" content="ff556746" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.MSCategoryV" content="ff556746VS85" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.TocNodeId" content="ff556746" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHKeywordA" content="ifsk.simrep_minifilter_sample" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHKeywordA" content="IFSKSamples_383669bb-30e3-4cc9-965f-4d72bf5e236d.xml" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHAttr" content="Locale:kbEnglish" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHAttr" content="DevLang:C++" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHAttr" content="DevLang:C" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHAttr" content="Product:Windows" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHAttr" content="TargetOS:Windows" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHAttr" content="DocSet:LHSDK" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHAttr" content="ProgModel:Win32" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHAttr" content="TopicType:kbArticle" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHAttr" content="AssetID:496b9d0c-782a-4a20-94e4-e0cfba82d057" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHAttr" content="DocSetTitle:InstallableFileSystemDrivers" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHAttr" content="DocSetRoot:Ff556746" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="AssetID" content="496b9d0c-782a-4a20-94e4-e0cfba82d057" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSHAttr" content="Rating:0" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.Rating" content="0" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="MSMETANRatingMSMETAV" content="0" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="HasCodeSamples" content="false" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="Search.RootTocId" content="ms310241" xmlns="http://www.w3.org/1999/xhtml"><link rel="canonical" href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/ff556746(v=vs.85).aspx"><title>
+	
+  Simrep Minifilter Sample (Windows Driver Kit)
+
+</title>
+<link href="./Simrep Minifilter Sample (Windows Driver Kit)_files/115884348f71fe7b5e8eaf3e9ce1cc26.css" rel="stylesheet" type="text/css">
+
+
+<link rel="stylesheet" type="text/css" href="./Simrep Minifilter Sample (Windows Driver Kit)_files/1ba8bf2312747032664951f2966a4bf3.css" media="print" title="printonly">
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/ff556746(d=robot,l=en-us,v=VS.85).aspx">
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/ff556746(d=robot,l=en-us,v=VS.85).aspx">
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/ff556746(l=en-us,v=VS.85).aspx">
+
+<meta name="MN" content="A581FDC1-9:08:17 PM">
+
+<meta name="Search.ShortId" content="ff556746">
+
+<meta name="Ms.Locale" content="en-us">
+</head>
+<body><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script type="text/javascript" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/timestamp.js.下载" charset="utf-8"></script>
+<script type="text/javascript" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/graph-calc.js.下载" charset="utf-8"></script>
+<script type="text/javascript" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/auto-complete.js.下载" charset="utf-8"></script>
+<script type="text/javascript" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/toolbar.js.下载" charset="utf-8"></script>
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+.wb-autocomplete-suggestions {
+    text-align: left; cursor: default; border: 1px solid #ccc; border-top: 0; background: #fff; box-shadow: -1px 1px 3px rgba(0,0,0,.1);
+    position: absolute; display: none; z-index: 2147483647; max-height: 254px; overflow: hidden; overflow-y: auto; box-sizing: border-box;
+}
+.wb-autocomplete-suggestion { position: relative; padding: 0 .6em; line-height: 23px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 1.02em; color: #333; }
+.wb-autocomplete-suggestion b { font-weight: bold; }
+.wb-autocomplete-suggestion.selected { background: #f0f0f0; }
+</style>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;">
+</div><div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/donate.html" scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><script type="text/javascript">
+__wm.bt(625,27,25,2,"web","http://msdn.microsoft.com/en-us/library/ff556746.aspx","2011-04-04",1996,"/_static/",['css/banner-styles.css','css/iconochive.css']);
+__wm.checkScreenShot("http://msdn.microsoft.com/en-us/library/ff556746.aspx", '20110404040817');
+</script><div class="wb-autocomplete-suggestions " style="left: 163px; top: 514px; width: 648px;"></div>
+<!-- END WAYBACK TOOLBAR INSERT -->
+  <div class="header">
+    
+
+<table border="0" cellpadding="0" cellspacing="0" class="headerBar cl_lightweight_topnav_slice">
+		<tbody><tr>
+			<td class="leftSection cl_lightweight_header_leftSection_wave leftSectionImageClusterOverride">
+        <div class="tabContainer">
+          <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/" title="Home" class=" headerTab">Home</a>
+          <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library" title="Library" class="headerTabSelected cl_lightweight_selected_tab_repeatX ">Library</a>
+          <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/bb188199.aspx" title="Learn" class=" headerTab">Learn</a>
+          <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/aa570309.aspx" title="Downloads" class=" headerTab">Downloads</a>
+          <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/aa570318.aspx" title="Support" class=" headerTab">Support</a>
+          <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/aa497440.aspx" title="Community" class=" headerTab">Community</a>
+          
+        </div>
+      </td>
+			<td class="rightSection cl_lightweight_header_rightSection_wave rightSectionImageClusterOverride">
+        <div class="tabContainer">
+            <a class="feature" href="https://web.archive.org/en-us/library/0aec117d-d566-4c5a-9fc6-250d0f335eb2" title="Last Updated 3/18/2011">Feature Preview</a>
+            <span class="pipe">|</span>
+            
+            <a href="https://web.archive.org/web/20110404040817/https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=11&amp;ct=1301890097&amp;rver=6.0.5276.0&amp;wp=MCLBI&amp;wlcxt=msdn%24msdn%24msdn&amp;wreply=http:%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fff556746.aspx&amp;lc=1033&amp;cb=&amp;id=254354" title="Sign in">Sign in </a>
+            <span class="pipe">|</span>
+            <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/preferences/locale/?returnurl=%252fen-us%252flibrary%252fff556746.aspx" title="United States - English">United States - English </a>
+            <span class="pipe">|</span>
+            <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/preferences/experience/?returnurl=%252fen-us%252flibrary%252fff556746.aspx" title="Preferences">Preferences</a>
+        </div>
+			</td>
+	</tr>
+</tbody></table>
+
+  </div>
+  <div class="contentPlaceHolder">
+    
+    
+  <div class="navigation" id="Navigation" style="width:280px;padding-bottom:96px;">
+    <div class="searchcontainer">
+      
+<form id="SearchForm" action="https://web.archive.org/web/20110404040817/http://social.msdn.microsoft.com/Search/en-us" method="get" style="margin: 0; padding: 0;">
+<div class="searchBoxContainer" style="">
+  <table class="searchBox" cellpadding="0" cellspacing="0" border="0">
+    <tbody><tr>
+      <td class="searchTextBoxTd">
+        <input id="searchTextBox" type="text" maxlength="200" class="searchTextBox" name="query" value="Search MSDN with Bing" onfocus="document.onkeydown = &#39;&#39;; WatermarkFocus(this, &#39;Search MSDN with Bing&#39;, &#39;searchTextBoxTrue&#39;) " onblur="document.onkeydown = Presskey;WatermarkBlur(this, &#39;Search MSDN with Bing&#39;, &#39;searchTextBox&#39;)">
+      </td>
+      <td class="searchButtonTd">
+        <a href="javascript:void(0)" style="display: block; overflow: hidden; width: 19px; height: 19px; position: relative;           padding: 0; margin: 0;" onclick="javascript:if(document.getElementById(&#39;searchTextBox&#39;).value == &#39;Search MSDN with Bing&#39;)document.getElementById(&#39;searchTextBox&#39;).value=&#39;&#39;; document.getElementById(&#39;SearchForm&#39;).submit();">
+          <img src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" class="cl_search_icon" style="position: relative;" title="Search" alt="Search"></a>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+</form>
+
+
+    </div>
+    <div class="navcontainer">
+      
+<div class="nav">
+  
+  <div class="toclevel0 ancestry">
+    
+    <div class="clip5x9 nav_root">
+      <img src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" class="cl_nav_bullet" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/ms123401.aspx" title="MSDN Library">MSDN Library</a></div>
+    
+    <div class="clip5x9 nav_arrows">
+      <img src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" class="cl_nav_arrow" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/ee663300(v=VS.85).aspx" title="Windows Development">Windows Development</a></div>
+    
+    <div class="clip5x9 nav_arrows">
+      <img src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" class="cl_nav_arrow" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/ff557573(v=VS.85).aspx" title="Windows Driver Kit">Windows Driver Kit</a></div>
+    
+    <div class="clip5x9 nav_arrows">
+      <img src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" class="cl_nav_arrow" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/ff557557(v=VS.85).aspx" title="Device and Driver Technologies">Device and Driver Technologies</a></div>
+    
+    <div class="clip5x9 nav_arrows">
+      <img src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" class="cl_nav_arrow" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/ff551834(v=VS.85).aspx" title="Installable File System Drivers">Installable File System Drivers</a></div>
+    
+    <div class="clip5x9 nav_arrows">
+      <img src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" class="cl_nav_arrow" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/ff548099(v=VS.85).aspx" title="IFSK Samples">IFSK Samples</a></div>
+    
+  </div>
+  
+  <div class="clip13x9 nav_dots_current">
+    <img src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" class="cl_nav_dots" alt="">
+  </div>
+  
+  <div class="toclevel1 current">
+    <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/ff556746(v=VS.85).aspx" title="Simrep Minifilter Sample">Simrep Minifilter Sample</a></div>
+  
+  <div class="toclevel2 children" style="border-bottom: 1px solid #bbbbbb;">
+    
+  </div>
+  <img src="./Simrep Minifilter Sample (Windows Driver Kit)_files/030c41d9079671d09a62d8e2c1db6973.gif" alt="Separator" class="communityContentNavigationSeparator cl_lt_cc_line_top">
+  
+</div>
+
+
+    </div>
+    
+  </div>
+  <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/ff556746.aspx#" onclick="onIncreaseToc()" class="tocResize" id="TocResize" style="left:280px">
+    <img id="ResizeImageIncrease" class="cl_nav_resize_open" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" onmousedown="onIncreaseToc()" title="Expand" alt="Expand">
+      <img id="ResizeImageReset" class="cl_nav_resize_close" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" style="display:none" onmousedown="onResetToc()" title="Minimize" alt="Minimize">
+  </a>
+  <div class="content">
+    <img class="TOC_Fade_Top cl_lw_toc_fade_top" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/030c41d9079671d09a62d8e2c1db6973.gif" alt="">
+    
+
+<div class="clip117x31 logo">
+  <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/default.aspx">
+    <img src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" class="msdn_body_logo" alt="MSDN" title="MSDN">
+  </a>
+</div>
+
+    <div class="topicContainer" style="">
+      
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">Simrep Minifilter Sample</h1>
+  
+  <div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<h4><a id="description"></a>Description</h4>
+<p>Simrep is a sample filter that demonstrates how a file system filter can simulate file-system like reparse-point behavior to redirect a file open to an alternate path. It is located in the <em>src\filesys\miniFilter</em> directory.</p>
+<h4><a id="theory_of_operation"></a>Theory of Operation</h4>
+<p> Normally, if the file-system sees an open for a file with a reparse-point on it, the filesystem fills out the tag buffer and returns STATUS_REPARSE. Minifilters see the post-operation callback for this create. As the create travels up file system filter stack in post-create path, each minifilter has the opportunity to interpret the reparse point if they own the tag.  If no file system filter claims the tag, IO Manager will attempt to interpret the tag based on tags known to and serviced by IO Manager. If the tag is unknown to IO manager then the create is failed with STATUS_IO_REPARSE_TAG_NOT_HANDLED. Simrep does not demonstrate how to handle the case where the file system hits a reparse-point on the file. Instead it "fakes" encountering a reparse point before the create reaches the filesystem. When simrep detects a create for a path that it is redirecting, simrep replaces the file name in the file object and completes the open with STATUS_REPARSE. This means we reparse without actually going to the file system.</p>
+<h4><a id="implementation_and_design"></a>Implementation and Design</h4>
+<p> Simrep decides to reparse according to a mapping. The mapping is made up of a "New Mapping Path" and an "Old Mapping Path". The old mapping path is the path which simrep looks for on incoming opens. If the path specified for the create is down the Old Mapping Path, then simrep will strip off the Old Mapping Path, and replace it with the New Mapping Path. By default, the Old Mapping Path is \x\y and the New Mapping Path is \a\b. So an open to \x\y\z will be replaced with an open to \a\b\z. These defaults are defined as registry keys at install time and are loaded on DriverEntry. See simrep.inf for details. </p>
+<p>It is important to note that simrep does not take long and short names into account. It literally does a string comparison to detect overlap with the mapping paths. Simrep also handles IRP_MJ_NETWORK_QUERY_OPEN. Because network query opens are FastIo operations, they cannot be reparsed. This means network query opens which need to be redirected must be failed with FLT_PREOP_DISALLOW_FASTIO. This will cause the Io Manager to reissue the open as a regular IRP based open. To prevent performance regression, simrep only fails network query opens which need to be reparsed. </p>
+<h4><a id="software_requirements"></a>Software Requirements</h4>
+<p>The sample runs on the following Windows operating systems: </p>
+<ul>
+<li>
+<p>Windows 7</p>
+</li>
+<li>
+<p>Windows Server 2008</p>
+</li>
+<li>
+<p>Windows Vista</p>
+</li>
+<li>
+<p>Windows Server 2003</p>
+</li>
+<li>
+<p>Windows XP</p>
+</li>
+<li>
+<p>Windows 2000</p>
+</li>
+</ul>
+<h4><a id="installation"></a>Installation</h4>
+<p>  The simrep minifilter comes with an INF file that will install the minifilter. To install the minifilter, do the following:</p>
+<ol>
+<li>
+<p>Make sure that, <em>simrep.sys</em>, and <em>simrep.inf </em>are in the same directory. </p>
+</li>
+<li>
+<p>In Windows Explorer, right-click <em>scanner.inf</em>, and click <strong>Install</strong>. </p>
+</li>
+</ol>
+<p>This installation will make the necessary registry updates to register the metadata service and place <em>simrep.sys </em>in the <em>%SystemRoot%\system32\drivers</em> directory.</p>
+<p>To load this minifilter, run <strong>fltmc load simrep</strong> or <strong>net start simrep</strong>. </p>
+<p>To attach this minifilter, run <strong>fltmc attach simrep &lt;drive letter&gt;</strong>.</p>
+<p>To see the reparse in action:</p>
+<ol>
+<li>
+<p>Load the filter, run <strong>fltmc load simrep</strong>.</p>
+</li>
+<li>
+<p>Attach the filter, run <strong>fltmc attach simrep c:</strong></p>
+</li>
+<li>
+<p>Create the New Mapping Path, run <strong>mkdir c:\a </strong>and <strong>mkdir c:\a\b.</strong></p>
+</li>
+<li>
+<p>Create a file down the Old Mapping Path, run <strong>notepad c:\x\y\z</strong>, edit the file, and save the results.</p>
+</li>
+<li>
+<p>Open the file down the New Mapping Path, run <strong>notepad c:\a\b\z</strong>.</p>
+</li>
+<li>
+<p>Notice that is the same file!</p>
+</li>
+</ol>
+<h4><a id="code_tour"></a>Code Tour</h4>
+<p><strong>File Manifest</strong></p>
+<table>
+<tbody><tr><th>File</th><th>Description</th></tr>
+<tr><td>
+<p><em>Simrep.c</em></p>
+</td><td>
+<p>The entire implementation of the simrep minifilter.</p>
+</td></tr>
+<tr><td>
+<p><em>Simrep.inf</em></p>
+</td><td>
+<p>Installation instructions for the simrep minifilter.</p>
+</td></tr>
+</tbody></table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="https://web.archive.org/web/20110404040817/mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback%20[ifsk\ifsk]:%20Simrep%20Minifilter%20Sample%20%20RELEASE:%20(9/28/2010)&amp;body=%0A%0APRIVACY%20STATEMENT%0A%0AThe%20SDK%20team%20uses%20the%20feedback%20submitted%20to%20improve%20the%20SDK%20documentation.%20We%20do%20not%20use%20your%20email%20address%20for%20any%20other%20purpose.%20We%20will%20remove%20your%20email%20address%20from%20our%20system%20after%20the%20issue%20you%20are%20reporting%20has%20been%20resolved.%20While%20we%20are%20working%20to%20resolve%20this%20issue,%20we%20may%20send%20you%20an%20email%20message%20to%20request%20more%20information%20about%20your%20feedback.%20After%20the%20issues%20have%20been%20addressed,%20we%20may%20send%20you%20an%20email%20message%20to%20let%20you%20know%20that%20your%20feedback%20has%20been%20addressed.%0A%0AFor%20more%20information%20about%20Microsoft%27s%20privacy%20policy,%20see%20http://privacy.microsoft.com/en-us/default.aspx." title="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft</a></p>
+<p>Build date: 9/28/2010</p>
+</div>
+</div>
+    </div>
+    
+  </div>
+  
+  
+
+  </div>
+  <div class="footer">
+    
+
+<div id="footer" class="footerContainer cl_footer_slice">
+  <div class="footerLogoContainer">
+    <div class="footerContent">
+    <div class="copyright">
+      © 2011 Microsoft. All rights reserved.</div>
+    <div class="footerLogo cl_footer_logo"></div>
+    <a href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/cc300389.aspx">Terms of Use</a><span class="pipe"> | </span>
+    <a href="https://web.archive.org/web/20110404040817/http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</a><span class="pipe"> | </span>
+    <a href="https://web.archive.org/web/20110404040817/http://www.microsoft.com/info/privacy.mspx">Privacy Statement</a>
+    <span class="pipe">| </span>
+    <a onclick="javascript:ShowFeedbackDialog();" title="Feedback" class="FeedbackLink" href="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/ff556746.aspx#footerLink">
+      Feedback
+        <span class="FeedbackButton clip20x21" id="FeedbackButton">
+          <img class="cl_footer_feedback_icon" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" alt="Feedback">
+        </span>
+      </a>
+    
+
+  <div id="FeedbackContainer" class="FeedbackContainer">
+    <form method="post" action="https://web.archive.org/web/20110404040817/http://msdn.microsoft.com/en-us/library/feedback/add/ff556746.aspx">
+    <div class="FeedbackTitleContainer">
+        <div class="FeedbackTitle">
+            Feedback</div>
+        <div class="FeedbackCancel">
+            <a href="javascript:;" onclick="document.getElementById(&#39;FeedbackContainer&#39;).style.display = &#39;none&#39;;">x</a>
+            </div>
+    </div>
+    <div class="FeedbackData">
+        <div class="FeedbackInfoText">
+            Tell us about your experience...
+        </div>
+        <div class="QuestionText">
+            Did the page load quickly?
+        </div>
+        <div class="AnswerText">
+            
+            <span>
+                Yes<span>
+                    <input id="searchBox" name="searchBox" type="radio" value="1"></span></span>
+            
+            <span>
+                No<span>
+                    <input id="searchBox" name="searchBox" type="radio" value="0"></span></span>
+            
+        </div>
+        <div class="QuestionText">
+            Do you like the page design?
+        </div>
+        <div class="AnswerText">
+            
+            <span>
+                Yes<span>
+                    <input id="tabbedCode" name="tabbedCode" type="radio" value="1"></span></span>
+            
+            <span>
+                No<span>
+                    <input id="tabbedCode" name="tabbedCode" type="radio" value="0"></span></span>
+            
+        </div>
+        <div class="QuestionText">
+            How useful is this topic?
+        </div>
+        <div class="FeedbackGraphicHolder clip269x23">            
+                <img alt="" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/a19e30a4020fe81d2b1209058013a360.png" class="cl_online_scale FeedbackSiderGraphic">
+        </div>        
+            <div class="RadioButtonHolder"><div class="RateRadioOne">
+                    <input id="topicUseful" name="topicUseful" title="Really disliked it" type="radio" value="1">
+                </div>
+               <div class="RateRadio">
+                    <input id="topicUseful" name="topicUseful" title="Disliked it" type="radio" value="2">
+                </div>
+               <div class="RateRadio">
+                    <input id="topicUseful" name="topicUseful" title="OK" type="radio" value="3">
+                </div>
+               <div class="RateRadio">
+                    <input id="topicUseful" name="topicUseful" title="Good" type="radio" value="4">
+                </div>
+               <div class="RateRadioLast">
+                    <input id="topicUseful" name="topicUseful" title="Really Good" type="radio" value="5">
+                </div>
+               
+            </div>            
+        <div class="QuestionText">
+            Tell us more
+        </div>
+        <div class="FeedbackTextAreaContainer">
+            <textarea name="feedbackText" cols="25" rows="5" class="FeedbackTextArea" onfocus="document.onkeydown = &#39;&#39;;" onblur="document.onkeydown = Presskey;" onkeyup="LimitText(this, 4000);" onkeydown="LimitText(this, 4000);"></textarea>
+            
+            <textarea id="feedbackDescription" name="feedbackDescription" cols="25" rows="10" style="display:none;" onkeyup="LimitText(this, 4000);" onkeydown="LimitText(this, 4000);">Enter description here.</textarea>
+            <input type="hidden" id="feedbackPriority" name="feedbackPriority" value="">
+            <input type="hidden" id="feedbackSourceUrl" name="feedbackSourceUrl" value="">
+            <input type="hidden" id="ClientIP" name="ClientIP" value="">
+            <input type="hidden" id="ClientOS" name="ClientOS" value="">
+            <input type="hidden" id="ClientBrowser" name="ClientBrowser" value="">
+            <input type="hidden" id="ClientTime" name="ClientTime" value="">
+            <input type="hidden" id="ClientTimeZone" name="ClientTimeZone" value="">
+            
+            
+        </div>
+        <div>
+            <input type="submit" value="Send" class="FeedbackSubmit" onclick="document.getElementById(&#39;feedbackDescription&#39;).value=&#39;&#39;;document.getElementById(&#39;feedBackVersion&#39;).value = &#39;-1&#39;;">
+        </div>
+    </div>
+    <input type="hidden" id="returnUrl" name="returnUrl" value="http://msdn.microsoft.com/en-us/library/ff556746.aspx">
+    
+    
+    <input type="hidden" id="feedBackVersion" name="feedBackVersion" value="1">
+    
+  </form> 
+</div>
+
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="MetricsContainer">
+    
+    <div class="WebtrendsContainer">
+      
+
+<script type="text/javascript" language="javascript">
+//<![CDATA[
+  var literalNormalizedUrl = '/en-us/library/ff556746(d=robot,l=en-us,v=VS.85).aspx';
+  var wt_nvr_ru = 'WT_NVR_RU';
+  var wt_fpcdom = '.microsoft.com';
+  var wt_domlist = 'msdn.microsoft.com';
+  var wt_pathlist = '';
+  var wt_paramlist = 'DCSext.mtps_devcenter';
+  var wt_siteid = 'MSDN';
+  var gDomain = 'm.webtrends.com';
+  var gDcsId = 'dcsmgru7m99k7mqmgrhudo0k8_8c6m';
+  var gFpc = 'WT_FPC';
+  if (document.cookie.indexOf(gFpc + "=") == -1) {
+    document.write("<scr" + "ipt type='text/javascript' src='" + "http" + (window.location.protocol.indexOf('https:') == 0 ? 's' : '') + "://" + gDomain + "/" + gDcsId + "/wtid.js" + "'><\\/scr" + "ipt>");
+  }
+  var detectedLocale = 'en-us';
+  var wtsp = 'msdnlib_w32_com';
+  var gTrackEvents = '0';
+/*]]>*/
+</script><script type="text/javascript" src="https://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/wtid.js"><\/script>
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="https://web.archive.org/web/20110404040817im_/http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No"/></div></noscript>
+
+
+    </div>
+    
+    <div class="OmnitureContainer">
+      
+
+
+
+<script type="text/javascript">
+  var omni_guid = '2b6ee77e-e67c-4551-a350-f02944843111'; 
+</script>
+
+
+
+<noscript>
+    <a href="https://web.archive.org/web/20110404040817/http://www.omniture.com/" title="Web Analytics">
+        <img src="//web.archive.org/web/20110404040817im_/http://msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt=""/></a>
+</noscript>
+
+
+    </div>
+    
+    <div class="WebMetrixContainer">
+      
+<div class="MetricsContainer">
+    <img alt="Page view tracker" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/trans_pixel.asp.下载" width="0" height="0" border="0">
+</div>
+
+    </div>
+    
+</div>
+<script language="javascript" type="text/javascript" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/broker.js.下载"></script>
+<script type="text/javascript" src="./Simrep Minifilter Sample (Windows Driver Kit)_files/71963f534a3cb22aa72383ecbeb36807.js.下载" xmlns="http://www.w3.org/1999/xhtml"></script>
+
+<!--
+     FILE ARCHIVED ON 04:08:17 Apr 04, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 15:14:27 Feb 03, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  PetaboxLoader3.datanode: 114.725 (4)
+  esindex: 0.056
+  PetaboxLoader3.resolve: 59.987
+  load_resource: 101.616
+  captures_list: 112.273
+  exclusion.robots.policy: 0.333
+  CDXLines.iter: 14.883 (3)
+  exclusion.robots: 0.358
+  RedisCDXSource: 6.521
+  LoadShardBlock: 87.0 (3)
+--><script src="./Simrep Minifilter Sample (Windows Driver Kit)_files/broker-config.js.下载"></script><div class="xl-chrome-ext-bar" id="xl_chrome_ext_{4DB361DE-01F7-4376-B494-639E489D19ED}" style="display: none;">
+      <div class="xl-chrome-ext-bar__logo"></div>
+
+      <a id="xl_chrome_ext_download" href="javascript:;" class="xl-chrome-ext-bar__option">下载视频</a>
+      <a id="xl_chrome_ext_close" href="javascript:;" class="xl-chrome-ext-bar__close"></a>
+    </div></body></html>
