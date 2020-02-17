@@ -1,0 +1,19 @@
+﻿  Building 'nullFilter' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping x64\Debug\nullFilter.inf
+  Both Version and Date must be specified to stamp DriverVer
+D:\minifilter-samples\nullFilter\nullFilter.inf(71-71): warning 1205: Section [NullFilter.DriverFiles] referenced from DelFiles and CopyFiles directive.
+  nullFilter.vcxproj -> D:\minifilter-samples\nullFilter\x64\Debug\nullFilter.sys
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\minifilter-samples\nullFilter\x64\Debug\nullFilter\nullfilter.cat
+  Done Adding Additional Store
+  Successfully signed: x64\Debug\nullFilter\nullfilter.cat
+  
