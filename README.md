@@ -46,6 +46,7 @@ CreateServiceA(hServiceMgr,
 		NULL,
 		NULL);
 //then RegCreateKeyEx and RegSetValueEx for HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\NullFilter\\Instance...
+https://github.com/dearfuture/minifilter-samples/blob/master/nullFilter/nullFilterWithoutInf/nullFilterWithoutInf.cpp
 
 3）sc create XXX，再注册minifilter所需的额外注册表项HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\NullFilter\\Instance...
 
